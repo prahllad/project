@@ -1,0 +1,87 @@
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <h1>Login</h1>
+        <hr>
+        <error-list [error]="error"></error-list>
+        <form (ngSubmit)="onLogin()" [formGroup]="loginForm">
+            <fieldset [disabled]="isSubmitting">
+                <fieldset class="form-group">
+                    <div class="form-group">
+
+                        <label for="InputEmail">Email address</label>
+                        <input type="email"  class="form-control" id="InputEmail"
+                               aria-describedby="emailHelp" formControlName="email" placeholder="Enter email">
+
+                        <label for="InputPassword">Password</label>
+
+                        <input type="password" class="form-control"
+                               id="InputPassword" placeholder="Password" formControlName="password">
+
+                    </div>
+
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" formControlName="rememberMe">
+                            Remember me
+                        </label>
+                        <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" formControlName="isHr" #val>
+                            Are you a HR?
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Log In</button>
+                    <button type="button" (click)="logingoogle()" class="btn btn-primary" >Log In google</button>
+                </fieldset>
+            </fieldset>
+        </form>
+        <a (click)="show()">Forgot Password??</a>
+    </div>
+</div>
+<div id="wrapper">
+						<div class="demo">
+				
+				<div class="control-group">
+					<label for="select-tools">Tools:</label>
+					<select id="select-tools" multiple placeholder="Pick a interest..."></select>
+				</div>
+				
+			</div>
+		</div>
+
+ <div class="modal fade" tabindex="-1" [ngClass]="{'in': visibleAnimate}"
+                 [ngStyle]="{'display': visible ? 'block' : 'none', 'opacity': visibleAnimate ? 1 : 0}">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <span (click)="hide()" class="w3-hover-text-grey w3-closebtn" style="margin-right: 10px">
+                            <i class="fa fa-remove"></i>
+                            </span>
+                        <div class="modal-header">
+                            <div class="app-modal-header">
+                                        <h2>Enter your email</h2>
+                            </div>
+                        </div>
+                        <div class="modal-body">
+                            <div class="app-modal-body">
+                                <input type="text" class="form-control" id="email"  [(ngModel)]="email" name="email" 
+                                placeholder="Enter your email here" #f>
+                                <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" [(ngModel)]="isHr" >
+                            Are you a HR?
+                        </label>
+                        <p *ngIf=errMsgShow style="color: red">{{errMsg}}</p>
+                        <p *ngIf=successMsgShow style="color: limegreen">{{successMsg}}</p>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="app-modal-footer">
+                                <button type="button" class="btn btn-primary" (click)="checkEmail()" >Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+        
+    

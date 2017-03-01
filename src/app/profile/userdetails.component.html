@@ -1,0 +1,14 @@
+<span class="w3-right w3-opacity glyphicon glyphicon-pencil"><a [routerLink]="['edit']">Edit</a></span>
+                <h4>Personal Details</h4><br>
+                
+                <hr class="w3-clear">
+                <h6>Candidate Name : {{details?.name}} </h6>
+                <h6>Date of Birth : {{details?.dob}} </h6>
+                <h6>Gender : {{details.gender}} </h6> 
+                <h6>Email Id : {{details.email}} </h6>
+                <h6>Contact no : {{details.phonenumber}} </h6>
+                <hr class="w3-clear">
+
+                <h3>Applied Jobs</h3>
+                <app-userjobs><h5>Loading your already applied Jobs...</h5></app-userjobs>
+ 

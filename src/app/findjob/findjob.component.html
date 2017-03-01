@@ -1,0 +1,126 @@
+<div class="jumbotron">
+    <p>Find Any Job</p>
+
+
+    <p>Search over 4,818 job postings in any category</p>
+    <p><a class="btn btn-primary btn-lg" role="button">Learn more</a></p>
+</div>
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Category</h3>
+            </div>
+            <div class="panel-body">
+                Panel content
+            </div>
+        </div>
+    </div>
+    <div class="col-md-7">
+
+
+        <div class="panel panel-default">
+            <!--
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <form>
+                        <div class="input-group">
+
+                            <input [(ngModel)]="listFilter" name="listSearch" type="text" class="form-control"
+                                   aria-describedby="basic-addon2"/>
+                            <span class="input-group-addon" id="basic-addon2">Search</span>
+
+                        </div>
+                    </form>
+                </h3>
+            </div>
+            -->
+
+            <div *ngFor='let Job of job '>
+                <div class="panel-body">
+                    <div class="panel panel-primary">
+
+
+                        <div class="panel-body listing">
+                            <div style="margin-top:-25px "><h3>{{Job.title | uppercase}}</h3><h6>{{Job.category}}</h6>
+                            </div>
+                            {{Job.description}}
+
+                            <br>
+                                <button type="button" class="btn btn-default"(click)="show(Job)">View Details</button>
+                                <button type="button" class="btn btn-primary pull-right" (click)="apply(Job)" >Apply</button>
+                                
+                        
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div (click)="hide()" class="modal fade" tabindex="-1" [ngClass]="{'in': visibleAnimate}"
+                 [ngStyle]="{'display': visible ? 'block' : 'none', 'opacity': visibleAnimate ? 1 : 0}">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <div class="app-modal-header">
+                                <h3>{{selectedJob?.title | uppercase}}</h3><h6>{{selectedJob?.category}}</h6>
+                            </div>
+                        </div>
+                        <div class="modal-body">
+                            <div class="app-modal-body">
+                                <b>Description: </b>{{selectedJob?.description}}<br>
+                                <b>Age Limit: </b>{{selectedJob?.AgeLimit}}<br>
+                                <b>Work Experience: </b>{{selectedJob?.WorkExp}}<br>
+                                <b>Educational Qualification: </b>{{selectedJob?.EduDetails}}<br>
+                                <b>Last Date to apply: </b>{{selectedJob?.last_date | date: 'yyyy/MM/dd'}}<br>
+                                <b>Tentative Joining Date: </b>{{selectedJob?.Joining | date: 'yyyy/MM/dd'}}<br>
+                                <b>Work Place: </b>{{selectedJob?.WorkPlace}}<br>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="app-modal-footer">
+                                <button type="button" class="btn btn-default" (click)="hide()">Close</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+ <div (click)="hide()" class="modal fade" tabindex="-1" [ngClass]="{'in': visibleAnimate}"
+       [ngStyle]="{'display': visible ? 'block' : 'none', 'opacity': visibleAnimate ? 1 : 0}">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+         <div class="app-modal-header">
+      <h3>{{selectedJob?.title | uppercase}}</h3><h6>{{selectedJob?.category}}</h6>
+    </div>
+        </div>
+        <div class="modal-body">
+           <div class="app-modal-body">
+      <b>Description: </b>{{selectedJob?.description}}<br>
+      <b>Age Limit: </b>{{selectedJob?.AgeLimit}}<br>
+      <b>Work Experience: </b>{{selectedJob?.WorkExp}}<br>
+      <b>Educational Qualification: </b>{{selectedJob?.EduDetails}}<br>
+      <b>Last Date to apply: </b>{{selectedJob?.last_date |  date: 'yyyy/MM/dd'}}<br>
+      <b>Tentative Joining Date: </b>{{selectedJob?.Joining |  date: 'yyyy/MM/dd'}}<br>
+      <b>Work Place: </b>{{selectedJob?.WorkPlace}}<br>
+    </div>
+        </div>
+        <div class="modal-footer">
+          <div class="app-modal-footer">
+      <button type="button" class="btn btn-default" (click)="hide()">Close</button>
+      
+    </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+        <a href="#top"> Go To Top </a>
+        
+        </div>
+    </div>
+</div>

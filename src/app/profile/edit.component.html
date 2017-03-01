@@ -1,0 +1,78 @@
+
+ 
+ <h4>Edit Personal Details</h4><br>
+                <hr class="w3-clear">
+
+  <form (ngSubmit)="load(profileForm.value)" [formGroup] = "profileForm" >
+    <div class="form-group">
+      <label for="name"><h6>Candidate Name </h6></label>
+      <input  type="text"  class="form-control" formControlName="name" >
+    </div>
+    <div class="form-group">
+      <label for="dob"><h6>Date of Birth </h6></label>
+        <input type="date" class="form-control" formControlName="dob">
+    </div>
+      <div class="form-group">
+          <label for="gender"><h6>Gender </h6></label>
+          <select class="form-control" id="gender" formControlName="gender">
+              <option>Male</option>
+              <option>Female</option>
+          </select>
+      </div>
+    <div class="form-group">
+      <label for="email"><h6>Email </h6></label>
+      <input type="email" class="form-control" formControlName="email" disabled="true">
+    </div>
+    
+   
+    
+  
+
+<hr class="w3-clear"> <!--- second part -->
+       
+   <div class="form-group">
+    <label for="Qualification">Qualification</label>
+    
+        <select class="form-control" id="select" formControlName="high_qual">
+          <option>Bachelor of Computer Science</option>
+          <option>Bachelor of Arts</option>
+          <option>Bachelor of Architecture</option>
+       
+        </select>
+    
+    <input type="checkbox" id="Pursuing" value="Pursuing" formControlName="pursuing"> 
+    <label for="Pursuing">Pursuing</label>
+    
+    <div class="input-group">
+      <div class="input-group-addon">%</div>
+      <input type="text" class="form-control" id="InputPercentage" placeholder="Current Percenatge"  formControlName="high_qual_perc">
+     
+  </div>
+
+  <hr class="w3-clear"> <!--- third part -->
+<div class="form-group">
+  <label for="StreetInputText">Street</label>
+     <input type="text" class="form-control"  id="streetInputText" formControlName="street" >
+ 
+     <label for="cityInputText">City</label>
+     <input type="text" class="form-control"  id="cityInputText" formControlName="city" >
+ 
+     <label for="stateInputText">State</label>
+     <input type="text" class="form-control"  id="stateInputText" formControlName="state" >
+
+     
+     <label for="pinInputText">Pin-Code</label>
+     <input type="text" class="form-control"  id="pinInputText" formControlName="pincode" >
+     <br>
+    
+      <div class="input-group">
+      <div class="input-group-addon">+91</div>
+      <input type="text" class="form-control" id="InputNumber" placeholder="Mobile Number" formControlName="phonenumber" >
+     
+    </div>
+     </div>
+    </div>
+    
+  <button type="submit"  class="btn btn-primary">Submit</button>
+  
+         

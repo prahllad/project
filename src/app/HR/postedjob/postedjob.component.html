@@ -1,0 +1,72 @@
+
+
+      <h3>Posted Jobs</h3>
+<div class=" " *ngFor="let val of postedjob" style="margin-top: 10px;border-color: blue">
+ 
+  <div class="row">
+    <div class="col-sm-6">
+    Job Id:</div>
+    <div class="col-sm-6">{{val.job_id}}</div>
+    </div> 
+    <div class="row">
+    <div class="col-sm-6">
+    Job Title:</div>
+    <div class="col-sm-6">{{val.title}}</div>
+    </div> 
+    <div class="row">
+    <div class="col-sm-6">
+    Job Description:</div>
+    <div class="col-sm-6">{{val.description}}</div>
+    </div> 
+    <div class="row">
+    <div class="col-sm-6">
+    Last Date of Apply:</div>
+    <div class="col-sm-6">{{val.last_date}}</div>
+    <button type="button" class="btn btn-primary pull-right" (click)="viewapply(val.job_id)" >View Applications</button>
+    </div>
+ <hr>
+ 
+</div>
+
+
+<div (click)="hide()" class="modal fade" tabindex="-1" [ngClass]="{'in': visibleAnimate}"
+       [ngStyle]="{'display': visible ? 'block' : 'none', 'opacity': visibleAnimate ? 1 : 0}">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+         <div class="app-modal-header">
+           <h3>Applications for this Job</h3>
+    </div>
+        </div>
+        <div class="modal-body">
+           <div class="app-modal-body">
+             <table class="table table-hover table-condensed">
+               <tr>
+                 <th>Applicant Email</th>
+                 <th>Resume Download Link</th>
+               </tr>
+               <tr *ngFor="let applicant of applicants">
+                    <td>
+                      <h5><a [routerLink]="['userview',applicant.email]">{{applicant.email}}</a> </h5>
+                    </td>
+                    <td>
+                      <a href={{applicant.resume}} download={{applicant.email}}>Download Resume</a>
+                    </td>
+               </tr>
+             </table>
+             <!--
+      <div *ngFor="let applicant of applicants">
+        <h5>{{applicant.email}} </h5><a href={{applicant.resume}} download={{applicant.email}}>Download Resume</a>
+        </div>
+        -->
+    </div>
+        </div>
+        <div class="modal-footer">
+          <div class="app-modal-footer">
+      <button type="button" class="btn btn-default" (click)="hide()">Close</button>
+      
+    </div>
+        </div>
+      </div>
+    </div>
+  </div>

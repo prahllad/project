@@ -1,0 +1,18 @@
+<div class="container" *ngIf=fromRegister>
+  <h2>Congratulations</h2>
+  <div class="alert alert-success">
+    <strong>Success!</strong> You have registered successfully.
+  </div>
+  <div class="alert alert-info">
+    <strong>Info!</strong> Please visit your email account to verify your Email:{{email}}  
+    <button (click)="send()" class="btn-success btn-warning " style="border-radius: 2%;">Resent verification email</button>
+  </div>
+</div>
+
+<div class="container" *ngIf=fromLink>
+  <h2>Processing verification Request</h2>
+  <div class="alert alert-success">
+    <strong>Wait!</strong> Almost There....
+  </div>
+</div>
+

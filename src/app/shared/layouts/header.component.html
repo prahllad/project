@@ -1,0 +1,30 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false" (click)="isCollapsed = !isCollapsed" aria-controls="bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a  class="navbar-brand" [routerLink]="['findjob']" (click)="isCollapsed = !isCollapsed">Gojira Jobs</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" [ngbCollapse]="!isCollapsed">
+            <ul class="nav navbar-nav">
+                
+                <li *ngIf="!(loggedInHr | async)" ><a [routerLink]="['findjob']" (click)="isCollapsed = !isCollapsed">Find Job</a></li>
+                <li *ngIf="(loggedInHr | async)" ><a [routerLink]="['hr']" (click)="isCollapsed = !isCollapsed">Posted Jobs</a></li>
+                <li><a [routerLink]="['aboutus']" (click)="isCollapsed = !isCollapsed">About Us</a></li>
+            </ul>
+
+            <ul *ngIf="!(loggedIn | async) && !(loggedInHr | async)" class="nav navbar-nav navbar-right">
+                <li><a [routerLink]="['login']" (click)="isCollapsed = !isCollapsed">Login</a></li>
+                <li><a [routerLink]="['register']" (click)="isCollapsed = !isCollapsed">Sign-Up</a></li>
+            </ul>
+            <ul *ngIf="(loggedIn | async) || (loggedInHr | async)" class="nav navbar-nav navbar-right">
+
+                <li *ngIf="!(loggedInHr | async)" ><a [routerLink]="['profile']" (click)="isCollapsed = !isCollapsed">View Profile</a></li>
+                <li><a [routerLink]="['changepass']" (click)="isCollapsed = !isCollapsed">Change Password</a></li>
+                <li><a (click)="lo

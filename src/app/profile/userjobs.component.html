@@ -1,0 +1,27 @@
+<div *ngFor='let Job of job '>
+                <div class="panel-body">
+                    <div class="panel panel-primary">
+
+
+                        <div class="panel-body listing">
+                            <div style="margin-top:-25px "><h3>{{Job.title | uppercase}}</h3><h6>{{Job.category}}</h6>
+                            </div>
+
+                            <div class="app-modal-body">
+                                <b>Description: </b>{{Job?.description}}<br>
+                                <b>Age Limit: </b>{{Job?.AgeLimit}}<br>
+                                <b>Work Experience: </b>{{Job?.WorkExp}}<br>
+                                <b>Educational Qualification: </b>{{Job?.EduDetails}}<br>
+                                <b>Last Date to apply: </b>{{Job?.last_date | date: 'yyyy/MM/dd'}}<br>
+                                <b>Tentative Joining Date: </b>{{Job?.Joining | date: 'yyyy/MM/dd'}}<br>
+                                <b>Work Place: </b>{{Job?.WorkPlace}}<br>
+                            </div>
+    
+                                
+                        
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
